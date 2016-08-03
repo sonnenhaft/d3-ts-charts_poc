@@ -5,6 +5,7 @@ interface Options {
     tooltips?: Array<string>
     onItemClick?: () => void
     showValue?: boolean
+    yAxisName?: string
 }
 
 export default Options;

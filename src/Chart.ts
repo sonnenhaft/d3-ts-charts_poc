@@ -19,7 +19,7 @@ namespace Chart {
             let chart = this.create(element)
 
             this.xAxis.draw(chart, this.xScale, this.width, this.height, this.options.labels)
-            this.yAxis.draw(chart, this.yScale, this.width, this.height)
+            this.yAxis.draw(chart, this.yScale, this.width, this.height, [], options.yAxisName)
             this.draw(chart)
         }
 

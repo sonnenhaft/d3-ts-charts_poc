@@ -5,7 +5,8 @@ window.onload = () => {
     let options = {
         labels: ['test', 'lorem ipsum', 'c', 'example'],
         dataset: [1, 2, 10, 4],
-        showValue: true
+        showValue: true,
+        yAxisName: 'Test'
     }
 
     new Chart.Bar(element, options)

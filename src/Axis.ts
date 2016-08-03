@@ -30,13 +30,13 @@ export default class Axis {
                  .orient('left')
     }
 
-    draw(chart: d3.Selection<any>, scale: any, width: number, height: number, labels: string[] = []) {
+    draw(chart: d3.Selection<any>, scale: any, width: number, height: number, labels: string[] = [], yAxisName?: string) {
         switch (this.type) {
             case AxisType.X:
                 this.drawXAxis(chart, scale, width, height, labels)
                 break
             case AxisType.Y:
-                this.drawYAxis(chart, scale)
+                this.drawYAxis(chart, scale, yAxisName)
                 break
         }
     }
@@ -60,13 +60,21 @@ export default class Axis {
         chart.attr('marker-end', `url(#${id})`)
     }
 
-    private drawYAxis(chart: d3.Selection<any>, yScale: any) {
+    private drawYAxis(chart: d3.Selection<any>, yScale: any, name: string) {
         let yAxis = Axis.getYAxis(yScale)
 
         chart.append('g')
           .attr('transform', `translate(31, 10)`)
           .attr('fill', '#4D546B')
           .call(yAxis)
+          .append('text')
+          .attr('class', 'label')
+          .attr('y', 0)
+          .attr('x', 0)
+          .attr('dy', '.71em')
+          .attr('dx', '.71em')
+          .style('text-anchor', 'beginning')
+          .text(name)
 
         const id = Date.now()
 
