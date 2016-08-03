@@ -14,7 +14,7 @@ namespace Chart {
 
         constructor(element: HTMLElement, public options: Options) {
             this.width = element.clientWidth
-            this.height = element.clientHeight || this.width / 2
+            this.height = element.clientHeight || this.width / 3
             this.options = options
             let chart = this.create(element)
 
