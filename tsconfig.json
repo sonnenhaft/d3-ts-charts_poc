@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": false,
+        "sourceMap": true,
+        "removeComments": true,
+        "noImplicitAny": true
+    },
+    "files": [
+        "typings/tsd.d.ts",
+        "src/Chart.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
