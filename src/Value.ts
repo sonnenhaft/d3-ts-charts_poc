@@ -1,4 +1,5 @@
 import * as d3 from 'd3'
+import {BarShapeOptions} from './Bar'
 
 export default class ValueShape {
     shape: d3.Selection<any>
@@ -6,7 +7,7 @@ export default class ValueShape {
     private length: number
     private margin: number = 0
 
-    constructor(public value: number | string, xScale: any) {
+    constructor(public value: number | string, xScale: any, private options?: BarShapeOptions) {
         let element = document.createElementNS(d3.ns.prefix['svg'], 'g')
 
         this.length = xScale.rangeBand() * 0.3
@@ -16,19 +17,19 @@ export default class ValueShape {
     }
 
     private drawBorder(items: d3.Selection<any>) {
-        let {margin, length} = this
+        let {margin, length, options} = this
 
         items.each(function() {
             d3.select(this)
               .append('rect')
               .attr('x', margin)
-              .attr('y', -80)
+              .attr('y', -margin)
               .attr('height', length)
               .attr('width', length)
               .attr('rx', 2)
               .attr('ry', 2)
-              .style('stroke', '#000')
-              .style('fill', '#fff')
+              .style('stroke', options.color)
+              .style('fill', 'fff')
               .style('stroke-width', '2px')
         })
     }
@@ -40,9 +41,9 @@ export default class ValueShape {
             d3.select(this)
               .append('text')
               .attr('x', margin + length / 2)
-              .attr('y', -54)
+              .attr('y', -(margin - length / 1.4))
               .attr('text-anchor', 'middle')
-              .style('font-size', '22px')
+              .style('font-size', length / 1.5)
               .style('font-weight', 'bold')
               .text(value)
         })

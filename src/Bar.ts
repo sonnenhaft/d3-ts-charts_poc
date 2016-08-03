@@ -3,6 +3,7 @@ import ValueShape from './Value'
 
 export interface BarShapeOptions {
     showValue?: boolean
+    color?: string
 }
 
 export default class BarShape {
@@ -17,6 +18,9 @@ export default class BarShape {
                        .attr('transform', () => {
                            return `translate(${xScale(String.fromCharCode(index + 65))}, ${yScale(data) - 30})`
                        })
+                       .attr('fill', () => {
+                           return options.color || '#e261cb'
+                       })
                        .call((items) => {
                            items.each(function() {
                                d3.select(this)
@@ -28,7 +32,7 @@ export default class BarShape {
 
         if (options && options.showValue) {
             this.value = this.shape.append(() => {
-                let element = new ValueShape(data, xScale)
+                let element = new ValueShape(data, xScale, options)
 
                 return element.shape.node()
             })
@@ -40,6 +44,16 @@ export default class BarShape {
              .data(dataset)
              .enter()
              .append((datum, index) => {
+                 options.color = '#e261cb'
+
+                 if (dataset.length === 2 && index === 1) {
+                     options.color = '#36a1ce'
+                 }
+
+                 if (dataset.length > 2) {
+                     options.color = '#9c76bf'
+                 }
+
                  let bar = new BarShape(datum, index, xScale, yScale, options)
 
                 return bar.shape.node()

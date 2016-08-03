@@ -46,6 +46,7 @@ export default class Axis {
 
         chart.append('g')
              .attr('transform', `translate(0, ${height - 30})`)
+             .attr('fill', '#4D546B')
              .call(xAxis)
 
         const id = Date.now()
@@ -53,6 +54,7 @@ export default class Axis {
         chart.append('circle')
              .attr('id', id)
              .attr('transform', `translate(${width - 4}, ${height - 30})`)
+             .attr('fill', '#4D546B')
              .attr('r', 4)
 
         chart.attr('marker-end', `url(#${id})`)
@@ -63,6 +65,7 @@ export default class Axis {
 
         chart.append('g')
           .attr('transform', `translate(31, 10)`)
+          .attr('fill', '#4D546B')
           .call(yAxis)
 
         const id = Date.now()
@@ -70,6 +73,7 @@ export default class Axis {
         chart.append('circle')
              .attr('id', id)
              .attr('transform', `translate(31, 10)`)
+             .attr('fill', '#4D546B')
              .attr('r', 4)
 
         chart.attr('marker-end', `url(#${id})`)
