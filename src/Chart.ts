@@ -18,9 +18,9 @@ namespace Chart {
             this.options = options
             let chart = this.create(element)
 
-            this.xAxis.draw(chart, this.xScale, this.width, this.height)
+            this.xAxis.draw(chart, this.xScale, this.width, this.height, this.options.labels)
             this.yAxis.draw(chart, this.yScale, this.width, this.height)
-            this.draw(chart, this.options.dataset)
+            this.draw(chart)
         }
 
         private get yScale() {
@@ -38,8 +38,8 @@ namespace Chart {
                      .attr('viewBox', `0 0 ${this.width} ${this.height}`)
         }
 
-        private draw(chart: d3.Selection<any>, dataset: number[]) {
-            const {showValue} = this.options
+        private draw(chart: d3.Selection<any>) {
+            const {showValue, dataset} = this.options
             BarShape.draw(chart, dataset, this.xScale, this.yScale, { showValue })
         }
     }
