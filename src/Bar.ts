@@ -39,11 +39,8 @@ export default class BarShape {
         }
     }
 
-    static draw(chart: d3.Selection<any>, dataset: number[], xScale: any, yScale: any, options?: BarShapeOptions) {
-        chart.selectAll('rect')
-             .data(dataset)
-             .enter()
-             .append((datum, index) => {
+    static draw(chart: d3.selection.Enter<number>, dataset: number[], xScale: any, yScale: any, options?: BarShapeOptions) {
+        chart.append((datum, index) => {
                  options.color = '#e261cb'
 
                  if (dataset.length === 2 && index === 1) {

@@ -1,6 +1,7 @@
 import Options from './Options'
 import Scale from './Scale'
 import BarShape from './Bar'
+import DotShape from './Dot'
 import Axis, {AxisType} from './Axis'
 import * as d3 from 'd3'
 
@@ -42,7 +43,7 @@ namespace Chart {
         }
 
         private draw(chart: d3.Selection<any>) {
-            const {showValue, dataset, header} = this.options
+            const {showValue, dataset, alternative, header} = this.options
 
             chart.append('text')
                  .attr('x', 5)
@@ -53,7 +54,15 @@ namespace Chart {
                  .style('color', '#4D546B')
                  .text(header)
 
-            BarShape.draw(chart, dataset, this.xScale, this.yScale, { showValue })
+            let source = chart.selectAll('rect')
+                              .data(dataset)
+                              .enter()
+
+            BarShape.draw(source, dataset, this.xScale, this.yScale, { showValue })
+
+            if (alternative) {
+                DotShape.draw(source, alternative, this.xScale, this.yScale)
+            }
         }
     }
 }

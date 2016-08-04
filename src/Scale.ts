@@ -8,7 +8,7 @@ export default class Scale {
                  .range([height - 100, 0])
     }
 
-    static getXScale(dataset: number[], width: number, ratio: number = 0.4) {
+    static getXScale(dataset: number[], width: number, ratio: number = 0.8/Math.pow(dataset.length, 0.3)) {
         return d3.scale
                  .ordinal()
                  .domain(dataset.map((item, index) => String.fromCharCode(index + 65)))
