@@ -48,8 +48,9 @@ namespace Chart {
                  .attr('x', 5)
                  .attr('y', 25)
                  .attr('text-anchor', 'start')
-                 .style('font-size', 20)
+                 .style('font-size', '24rm')
                  .style('text-transform', 'uppercase')
+                 .style('color', '#4D546B')
                  .text(header)
 
             BarShape.draw(chart, dataset, this.xScale, this.yScale, { showValue })
