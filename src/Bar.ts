@@ -16,7 +16,7 @@ export default class BarShape {
         this.shape = d3.select(element)
                        .attr('class', 'bar')
                        .attr('transform', () => {
-                           return `translate(${xScale(String.fromCharCode(index + 65))}, ${yScale(data) - 30})`
+                           return `translate(${xScale(String.fromCharCode(index + 65))}, ${yScale(data) + 70})`
                        })
                        .attr('fill', () => {
                            return options.color || '#e261cb'

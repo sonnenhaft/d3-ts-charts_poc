@@ -5,7 +5,7 @@ export default class Scale {
         return d3.scale
                  .linear()
                  .domain([0, d3.max(dataset) * ratio])
-                 .range([height, 0])
+                 .range([height - 100, 0])
     }
 
     static getXScale(dataset: number[], width: number, ratio: number = 0.4) {

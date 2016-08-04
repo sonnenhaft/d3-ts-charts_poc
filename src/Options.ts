@@ -1,5 +1,5 @@
 interface Options {
-    header?: string
+    header: string
     labels: Array<string>
     dataset: Array<number>
     tooltips?: Array<string>

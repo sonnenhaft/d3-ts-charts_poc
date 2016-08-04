@@ -64,23 +64,23 @@ export default class Axis {
         let yAxis = Axis.getYAxis(yScale)
 
         chart.append('g')
-          .attr('transform', `translate(31, 10)`)
+          .attr('transform', `translate(31, 110)`)
           .attr('fill', '#4D546B')
           .call(yAxis)
           .append('text')
           .attr('class', 'label')
-          .attr('y', 0)
-          .attr('x', 0)
+          .attr('y', -30)
+          .attr('x', -10)
           .attr('dy', '.71em')
           .attr('dx', '.71em')
-          .style('text-anchor', 'beginning')
+          .style('text-anchor', 'middle')
           .text(name)
 
         const id = Date.now()
 
         chart.append('circle')
              .attr('id', id)
-             .attr('transform', `translate(31, 10)`)
+             .attr('transform', `translate(31, 110)`)
              .attr('fill', '#4D546B')
              .attr('r', 4)
 

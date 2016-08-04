@@ -35,11 +35,23 @@ namespace Chart {
             return d3.select(element)
                      .append('svg')
                      .attr('preserveAspectRatio', 'xMidYMid meet')
-                     .attr('viewBox', `0 0 ${this.width} ${this.height}`)
+                     .attr('viewBox', `0 0 ${this.width + 50} ${this.height + 50}`)
+                     .style('background-color', '#f3f4f5')
+                     .append('g')
+                     .attr('transform', 'translate(25, 25)')
         }
 
         private draw(chart: d3.Selection<any>) {
-            const {showValue, dataset} = this.options
+            const {showValue, dataset, header} = this.options
+
+            chart.append('text')
+                 .attr('x', 5)
+                 .attr('y', 25)
+                 .attr('text-anchor', 'start')
+                 .style('font-size', 20)
+                 .style('text-transform', 'uppercase')
+                 .text(header)
+
             BarShape.draw(chart, dataset, this.xScale, this.yScale, { showValue })
         }
     }
