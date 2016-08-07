@@ -6,14 +6,14 @@ module.exports =  {
          'webpack/hot/only-dev-server',
         './example/index.ts'
     ],
-    devtool: 'eval',
+    devtool: 'source-map',
     output: {
         filename: 'bundle.js' 
     },
     module: {
-        preLoaders: [
-            { test: /\.ts$/, loader: 'tslint', exclude: /node_modules/ }
-        ],
+        // preLoaders: [
+        //     { test: /\.ts$/, loader: 'tslint', exclude: /node_modules/ }
+        // ],
         loaders: [
             { test: /\.ts$/, loader: 'ts', exclude: /node_modules/ }
         ]
