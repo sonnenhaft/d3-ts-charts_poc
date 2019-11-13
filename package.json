@@ -1,26 +1,29 @@
 {
-  "name": "chart",
-  "version": "0.0.0",
-  "description": "A Chart library based on d3",
-  "main": "lib/index.js",
+  "name": "d3-ts-charts_poc",
+  "version": "0.0.1",
+  "description": "A Chart library based on d3 POC",
+  "main": "index.ts",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --inline --hot",
+    "build": "webpack",
     "lint": "tslint 'src/**/*.ts'",
     "postinstall": "tsd install"
   },
   "dependencies": {
-    "d3": "^3.5.17"
+    "d3": "^3.5.17",
+    "ts-loader": "^6.2.1"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
     "mocha": "^2.4.5",
-    "typescript": "^1.8.10",
     "tsd": "^0.6.5",
     "tslint": "^3.5.0",
     "tslint-config-standard": "^1.0.0",
-    "ts-loader": "^0.8.1",
     "tslint-loader": "^2.1.0",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "typings": "lib/index.d.ts"
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "write-file-webpack-plugin": "^4.5.1"
+  }
 }
